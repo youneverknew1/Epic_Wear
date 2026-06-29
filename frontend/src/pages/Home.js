@@ -51,12 +51,8 @@ function Home() {
               e.currentTarget.style.boxShadow = '0 2px 15px rgba(0,0,0,0.3)';
             }}
           >
-            <div style={{
-              width:'100%', height:'220px',
-              backgroundColor:'#16213e',
-              display:'flex', alignItems:'center', justifyContent:'center',
-              fontSize:'60px'
-            }}>⚽</div>
+            <img src={p.image_url} alt={p.name} 
+  style={{width:'100%', height:'220px', objectFit:'cover', borderRadius:'8px 8px 0 0'}} />
             <div style={{padding:'18px'}}>
               <h3 style={{fontSize:'16px', fontWeight:'700', marginBottom:'6px', color:'white'}}>{p.name}</h3>
               <p style={{color:'#888', fontSize:'13px', marginBottom:'12px'}}>Stock: {p.stock} left</p>

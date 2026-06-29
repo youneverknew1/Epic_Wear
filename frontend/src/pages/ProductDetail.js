@@ -36,12 +36,8 @@ function ProductDetail() {
         borderRadius:'20px', padding:'40px',
         boxShadow:'0 4px 30px rgba(0,0,0,0.4)', border:'1px solid #2a2a3e'
       }}>
-        <div style={{
-          width:'350px', height:'350px', flexShrink:0,
-          backgroundColor:'#16213e', borderRadius:'16px',
-          display:'flex', alignItems:'center', justifyContent:'center',
-          fontSize:'100px'
-        }}>⚽</div>
+        <img src={product.image_url} alt={product.name}
+  style={{width:'350px', height:'350px', objectFit:'cover', borderRadius:'16px', flexShrink:0}} />
 
         <div style={{flex:1}}>
           <span style={{
