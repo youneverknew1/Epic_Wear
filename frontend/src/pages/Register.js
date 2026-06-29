@@ -17,7 +17,7 @@ function Register() {
     if (password.length < 6) return setError('Password must be at least 6 characters');
     setLoading(true);
     try {
-      const res = await axios.post('http://127.0.0.1:5000/api/auth/register', { name, email, password });
+      const res = await axios.post('https://epic-wear-backend.onrender.com/api/auth/register', { name, email, password });
       login(res.data.user, res.data.token);
       navigate('/');
     } catch (err) {

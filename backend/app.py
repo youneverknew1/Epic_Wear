@@ -15,7 +15,7 @@ bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 app.extensions['bcrypt'] = bcrypt
 
-CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
+CORS(app, resources={r"/api/*": {"origins": "https://epic-wear-backend.onrender.com"}})
 
 from routes.api import api_bp
 from routes.auth import auth_bp
