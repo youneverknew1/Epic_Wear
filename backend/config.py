@@ -10,9 +10,9 @@ class Config:
     SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key')
     JWT_SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key')
 
-    MYSQL_HOST = '127.0.0.1'
-    MYSQL_PORT = 3306
+    MYSQL_HOST = 'hayabusa.proxy.rlwy.net'
+    MYSQL_PORT = 59062
     MYSQL_USER = 'root'
-    MYSQL_PASSWORD = 'sadidkabir21234'
-    MYSQL_DB = 'jersey_shop'
+    MYSQL_PASSWORD = 'MGXBNJcwhjoVdfQkMexWKnycYSUtnYgn'
+    MYSQL_DB = 'railway'
     MYSQL_CURSORCLASS = 'DictCursor'
