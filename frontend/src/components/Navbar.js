@@ -24,8 +24,7 @@ function Navbar() {
       zIndex:100
     }}>
       <h1 style={{color:'white', cursor:'pointer', fontSize:'24px', fontWeight:'800'}}
-        onClick={() => navigate('/')}>
-        ⚽ <span style={{color:'#e94560'}}>Epic</span>Wear
+        onClick={() => navigate('/')}> <span style={{color:'#e94560'}}>@Epic</span>Wear
       </h1>
       <div style={{display:'flex', gap:'12px', alignItems:'center'}}>
         <button onClick={() => navigate('/')} style={{

@@ -22,8 +22,8 @@ function Home() {
   return (
     <div style={{padding:'40px 60px', background:'#0f0f1a', minHeight:'100vh'}}>
       <div style={{textAlign:'center', marginBottom:'40px'}}>
-        <h1 style={{fontSize:'36px', fontWeight:'800', color:'white'}}>Our Collection</h1>
-        <p style={{color:'#aaa', marginTop:'8px'}}>Premium jerseys for every fan</p>
+        <h1 style={{fontSize:'36px', fontWeight:'800', color:'white'}}>Premium Collection</h1>
+        <p style={{color:'#aaa', marginTop:'8px'}}>Premium jerseys for crazyfan</p>
       </div>
       <div style={{
         display:'grid',
