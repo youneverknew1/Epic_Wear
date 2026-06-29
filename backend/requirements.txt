@@ -1,0 +1,6 @@
+Flask==2.3.0
+Flask-CORS==4.0.0
+Flask-MySQLdb==1.0.1
+python-dotenv==1.0.0
+requests==2.31.0
+Werkzeug==2.3.0
