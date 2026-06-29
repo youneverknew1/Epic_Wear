@@ -8,7 +8,8 @@ class Config:
     FLASK_ENV = os.getenv('FLASK_ENV', 'development')
     DEBUG = True
     SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key')
-    
+    JWT_SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key')
+
     MYSQL_HOST = '127.0.0.1'
     MYSQL_PORT = 3306
     MYSQL_USER = 'root'
