@@ -9,7 +9,10 @@ function Home() {
 
   useEffect(() => {
     getProducts()
-      .then(res => { setProducts(res.data); setLoading(false); })
+      .then(res => { 
+        setProducts(res.data); 
+        setLoading(false); 
+      })
       .catch(() => setLoading(false));
   }, []);
 
@@ -25,6 +28,7 @@ function Home() {
         <h1 style={{fontSize:'36px', fontWeight:'800', color:'white'}}>Premium Collection</h1>
         <p style={{color:'#aaa', marginTop:'8px'}}>Premium jerseys for crazyfan</p>
       </div>
+      
       <div style={{
         display:'grid',
         gridTemplateColumns:'repeat(auto-fill, minmax(280px, 1fr))',
@@ -52,7 +56,7 @@ function Home() {
             }}
           >
             <img src={p.image_url} alt={p.name} 
-  style={{width:'100%', height:'220px', objectFit:'cover', borderRadius:'8px 8px 0 0'}} />
+                 style={{width:'100%', height:'220px', objectFit:'cover', borderRadius:'8px 8px 0 0'}} />
             <div style={{padding:'18px'}}>
               <h3 style={{fontSize:'16px', fontWeight:'700', marginBottom:'6px', color:'white'}}>{p.name}</h3>
               <p style={{color:'#888', fontSize:'13px', marginBottom:'12px'}}>Stock: {p.stock} left</p>
@@ -66,6 +70,30 @@ function Home() {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Fixed Footer Section */}
+      <div style={{
+        textAlign: 'center',
+        marginTop: '60px',
+        paddingTop: '25px',
+        borderTop: '1px solid #2a2a3e'
+      }}>
+        <p style={{ color: '#666', fontSize: '13px' }}>
+          Developed by{' '}
+          <a 
+            href="https://github.com/youneverknew1"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: '#e94560',
+              fontWeight: '700',
+              textDecoration: 'none'
+            }}
+          >
+            Shahriar Sadid
+          </a>
+        </p>
       </div>
     </div>
   );
