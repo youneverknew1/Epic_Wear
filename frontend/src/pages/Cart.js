@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getCart } from '../services/api';
-
-const USER_ID = 1;
+import { useAuth } from '../context/AuthContext';
 
 function Cart() {
+  const { user } = useAuth();
   const [cart, setCart] = useState({ items: [], total: 0 });
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    getCart(USER_ID)
-      .then(res => { setCart(res.data); setLoading(false); })
-      .catch(() => setLoading(false));
-  }, []);
+useEffect(() => {
+  if (!user) {
+    setLoading(false);
+    return;
+  }
+  getCart(user.id)
+    .then(res => { setCart(res.data); setLoading(false); })
+    .catch(() => setLoading(false));
+}, [user]);
 
   if (loading) return <div style={{ textAlign: 'center', padding: '100px', color: '#eee' }}>Loading cart...</div>;
 

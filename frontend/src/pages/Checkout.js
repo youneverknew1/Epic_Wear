@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createOrder } from '../services/api';
+import { useAuth } from '../context/AuthContext';
 
-const USER_ID = 1;
+// const USER_ID = 1;
+
 
 function Checkout() {
+  const { user } = useAuth();
   const [address, setAddress] = useState('');
   const [payment, setPayment] = useState('COD');
   const [message, setMessage] = useState('');
@@ -12,15 +15,16 @@ function Checkout() {
   const navigate = useNavigate();
 
   const handleOrder = () => {
-    if (!address) return setMessage('Please enter delivery address!');
-    createOrder({ user_id: USER_ID, delivery_address: address, payment_method: payment })
-      .then(res => {
-        setSuccess(true);
-        setMessage(`Order #${res.data.order_id} placed successfully!`);
-        setTimeout(() => navigate('/'), 3000);
-      })
-      .catch(() => setMessage('❌ Error placing order. Please try again.'));
-  };
+  if (!user) return setMessage('Please login first!');
+  if (!address) return setMessage('Please enter delivery address!');
+  createOrder({ user_id: user.id, delivery_address: address, payment_method: payment })
+    .then(res => {
+      setSuccess(true);
+      setMessage(`Order #${res.data.order_id} placed successfully!`);
+      setTimeout(() => navigate('/'), 3000);
+    })
+    .catch(() => setMessage('❌ Error placing order. Please try again.'));
+};
 
   return (
     <div style={{ padding: '40px 60px', maxWidth: '550px', margin: '0 auto', background: '#0f0f1a', minHeight: '100vh' }}>

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getProduct, addToCart } from '../services/api';
+import { useAuth } from '../context/AuthContext';
 
-const USER_ID = 1;
+// const USER_ID = 1;
 
 function ProductDetail() {
+  const { user } = useAuth();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [message, setMessage] = useState('');
@@ -16,10 +18,14 @@ function ProductDetail() {
   }, [id]);
 
   const handleAddToCart = () => {
-    addToCart({ user_id: USER_ID, product_id: product.id, quantity: 1 })
-      .then(() => { setMessage('✅ Added to cart!'); setAdded(true); })
-      .catch(() => setMessage('❌ Error adding to cart'));
-  };
+  if (!user) {
+    setMessage('❌ Please login first');
+    return;
+  }
+  addToCart({ user_id: user.id, product_id: product.id, quantity: 1 })
+    .then(() => { setMessage('✅ Added to cart!'); setAdded(true); })
+    .catch(() => setMessage('❌ Error adding to cart'));
+};
 
   if (!product) return <div style={{ textAlign: 'center', padding: '100px', color: '#eee' }}>Loading...</div>;
 
