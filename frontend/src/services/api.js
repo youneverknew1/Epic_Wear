@@ -11,3 +11,4 @@ export const getCategories = () => API.get('/categories');
 export const getCart = (userId) => API.get(`/cart/${userId}`);
 export const addToCart = (data) => API.post('/cart', data);
 export const createOrder = (data) => API.post('/orders', data);
+export const removeFromCart = (userId, itemId) => API.delete(`/cart/${userId}/${itemId}`);

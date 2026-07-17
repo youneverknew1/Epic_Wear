@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getCart } from '../services/api';
+import { getCart, removeFromCart } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
 function Cart() {
@@ -9,15 +9,39 @@ function Cart() {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-useEffect(() => {
-  if (!user) {
-    setLoading(false);
-    return;
-  }
-  getCart(user.id)
-    .then(res => { setCart(res.data); setLoading(false); })
-    .catch(() => setLoading(false));
-}, [user]);
+  useEffect(() => {
+    if (!user) {
+      setLoading(false);
+      return;
+    }
+    getCart(user.id)
+      .then(res => { 
+        setCart(res.data); 
+        setLoading(false); 
+      })
+      .catch(() => setLoading(false));
+  }, [user]);
+
+  // Handler to call backend deletion and refresh interface state
+  const handleRemoveItem = (itemId) => {
+    if (!user) return;
+
+    removeFromCart(user.id, itemId)
+      .then(res => {
+        // Option A: If your API returns the updated cart object directly:
+        setCart(res.data);
+
+        /* 
+        Option B: If your API only returns a "success" message string, 
+        uncomment the block below and comment out "setCart(res.data);" above:
+
+        const updatedItems = cart.items.filter(item => item.id !== itemId);
+        const updatedTotal = updatedItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        setCart({ items: updatedItems, total: updatedTotal });
+        */
+      })
+      .catch(err => console.error("Error removing item from cart:", err));
+  };
 
   if (loading) return <div style={{ textAlign: 'center', padding: '100px', color: '#eee' }}>Loading cart...</div>;
 
@@ -54,7 +78,29 @@ useEffect(() => {
                   <p style={{ color: '#888', fontSize: '13px' }}>Qty: {item.quantity}</p>
                 </div>
               </div>
-              <span style={{ fontSize: '18px', fontWeight: '800', color: '#e94560' }}>৳{item.price * item.quantity}</span>
+              
+              {/* Flex alignment layout to hold price and delete action neatly */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                <span style={{ fontSize: '18px', fontWeight: '800', color: '#e94560' }}>৳{item.price * item.quantity}</span>
+                <button 
+                  onClick={() => handleRemoveItem(item.id)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#ff4d4d',
+                    fontSize: '18px',
+                    cursor: 'pointer',
+                    padding: '8px',
+                    borderRadius: '6px',
+                    transition: 'background 0.2s'
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.backgroundColor = 'rgba(255, 77, 77, 0.1)'}
+                  onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
+                  title="Remove item"
+                >
+                  🗑️
+                </button>
+              </div>
             </div>
           ))}
 
