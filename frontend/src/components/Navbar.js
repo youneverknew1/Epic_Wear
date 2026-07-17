@@ -24,7 +24,7 @@ function Navbar() {
       zIndex:100
     }}>
       <h1 style={{color:'white', cursor:'pointer', fontSize:'24px', fontWeight:'800'}}
-        onClick={() => navigate('/')}> <span style={{color:'#e94560'}}>@Epic</span>Wear
+        onClick={() => navigate('/')}> <span style={{color:'#87c2ec'}}>@Epic</span>WEAR
       </h1>
       <div style={{display:'flex', gap:'12px', alignItems:'center'}}>
         <button onClick={() => navigate('/')} style={{
@@ -35,9 +35,9 @@ function Navbar() {
 
         {user ? (
           <>
-            <span style={{color:'#aaa', fontSize:'14px'}}>Hi, {user.name}!</span>
+            <span style={{color:'#aaa', fontSize:'14px'}}> {user.name}!</span>
             <button onClick={() => navigate('/cart')} style={{
-              padding:'8px 20px', backgroundColor:'#e94560',
+              padding:'8px 20px', backgroundColor:'#ebf2f2',
               color:'white', border:'none', borderRadius:'25px',
               cursor:'pointer', fontSize:'14px', fontWeight:'600'
             }}>🛒 Cart</button>
