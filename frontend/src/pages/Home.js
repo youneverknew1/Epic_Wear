@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getProducts } from '../services/api';
-export const getProducts = (edition) => 
-  API.get('/products', { params: edition ? { edition } : {} });
 
 function Home() {
   const [products, setProducts] = useState([]);
