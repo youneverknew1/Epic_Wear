@@ -72,7 +72,6 @@ function Home() {
         ))}
       </div>
 
-      {/* Fixed Footer Section */}
       <div style={{
         textAlign: 'center',
         marginTop: '60px',
