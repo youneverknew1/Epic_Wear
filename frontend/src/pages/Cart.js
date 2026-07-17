@@ -24,24 +24,17 @@ function Cart() {
 
   // Handler to call backend deletion and refresh interface state
   const handleRemoveItem = (itemId) => {
-    if (!user) return;
-
-    removeFromCart(user.id, itemId)
-      .then(res => {
-        // Option A: If your API returns the updated cart object directly:
-        setCart(res.data);
-
-        /* 
-        Option B: If your API only returns a "success" message string, 
-        uncomment the block below and comment out "setCart(res.data);" above:
-
-        const updatedItems = cart.items.filter(item => item.id !== itemId);
-        const updatedTotal = updatedItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        setCart({ items: updatedItems, total: updatedTotal });
-        */
-      })
-      .catch(err => console.error("Error removing item from cart:", err));
-  };
+  removeFromCart(itemId)
+    .then(() => {
+      setCart(prev => ({
+        items: prev.items.filter(item => item.id !== itemId),
+        total: prev.items
+          .filter(item => item.id !== itemId)
+          .reduce((sum, item) => sum + item.price * item.quantity, 0)
+      }));
+    })
+    .catch(err => console.error("Error removing item from cart:", err));
+};
 
   if (loading) return <div style={{ textAlign: 'center', padding: '100px', color: '#eee' }}>Loading cart...</div>;
 
