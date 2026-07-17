@@ -8,8 +8,13 @@ api_bp = Blueprint('api', __name__, url_prefix='/api')
 def get_products():
     try:
         mysql = current_app.extensions['mysql']
+        edition = request.args.get('edition')
+        
         cursor = mysql.connection.cursor()
-        cursor.execute("SELECT * FROM products")
+        if edition:
+            cursor.execute("SELECT * FROM products WHERE edition = %s", (edition,))
+        else:
+            cursor.execute("SELECT * FROM products")
         products = cursor.fetchall()
         cursor.close()
         return jsonify(products), 200
