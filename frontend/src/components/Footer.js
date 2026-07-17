@@ -9,12 +9,6 @@ function Footer() {
       paddingBottom: '25px',
       borderTop: '1px solid #2a2a3e'
     }}>
-      <p style={{ color: '#e94560', fontWeight: '700', fontSize: '15px', marginBottom: '4px' }}>
-        @EpicWear
-      </p>
-      <p style={{ color: '#666', fontSize: '13px' }}>
-        Built with React, Flask & MySQL
-      </p>
       <p style={{ color: '#666', fontSize: '13px', marginTop: '6px' }}>
         Developed by{' '}
         <a 
