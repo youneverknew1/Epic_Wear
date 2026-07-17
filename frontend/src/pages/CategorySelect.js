@@ -9,8 +9,7 @@ function CategorySelect() {
   };
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>Choose Your Style</h1>
-      <p style={styles.subtitle}>Pick a collection to explore</p>
+      <h1 style={styles.subtitle}>Pick a collection to explore</h1>
 
       <div style={styles.grid}>
         <div style={styles.card} onClick={() => handleSelect('fan')}>
@@ -32,8 +31,8 @@ function CategorySelect() {
             style={styles.image}
           />
           <div style={styles.overlay}>
-            <h2 style={styles.cardTitle}>Player Edition</h2>
-            <button style={styles.button}>Explore →</button>
+            <h2 style={styles.cardTitle}>Player Edition!</h2>
+            <button style={styles.button}>Explore! →</button>
           </div>
         </div>
       </div>
