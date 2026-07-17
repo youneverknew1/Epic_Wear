@@ -5,34 +5,40 @@ function CategorySelect() {
   const navigate = useNavigate();
 
   const handleSelect = (edition) => {
-  navigate(edition === 'fan' ? '/fan-edition' : '/player-edition');
+    navigate(edition === 'fan' ? '/fan-edition' : '/player-edition');
   };
+
   return (
-    <div style={styles.container}>
-      <h1 style={styles.subtitle}>Pick a collection to explore</h1>
+    <div style={styles.wrapper}>
+      <div style={styles.bgImage}></div>
+      <div style={styles.darkOverlay}></div>
 
-      <div style={styles.grid}>
-        <div style={styles.card} onClick={() => handleSelect('fan')}>
-          <img
-            src="https://res.cloudinary.com/ddatom50t/image/upload/v1784267757/rn-image_picker_lib_temp_62fe2df9-5b70-46c6-85cf-2f3943f6aaf6_rpq0i7.webp"
-            alt="Fan Edition"
-            style={styles.image}
-          />
-          <div style={styles.overlay}>
-            <h2 style={styles.cardTitle}>Fan Edition</h2>
-            <button style={styles.button}>Explore →</button>
+      <div style={styles.container}>
+        <h1 style={styles.subtitle}>Pick a collection to explore</h1>
+
+        <div style={styles.grid}>
+          <div style={styles.card} onClick={() => handleSelect('fan')}>
+            <img
+              src="https://res.cloudinary.com/ddatom50t/image/upload/v1784267757/rn-image_picker_lib_temp_62fe2df9-5b70-46c6-85cf-2f3943f6aaf6_rpq0i7.webp"
+              alt="Fan Edition"
+              style={styles.image}
+            />
+            <div style={styles.overlay}>
+              <h2 style={styles.cardTitle}>Fan Edition</h2>
+              <button style={styles.button}>Explore →</button>
+            </div>
           </div>
-        </div>
 
-        <div style={styles.card} onClick={() => handleSelect('player')}>
-          <img
-            src="https://res.cloudinary.com/ddatom50t/image/upload/v1784275804/Lamine_PDP_bupwlh.webp"
-            alt="Player Edition"
-            style={styles.image}
-          />
-          <div style={styles.overlay}>
-            <h2 style={styles.cardTitle}>Player Edition!</h2>
-            <button style={styles.button}>Explore! →</button>
+          <div style={styles.card} onClick={() => handleSelect('player')}>
+            <img
+              src="https://res.cloudinary.com/ddatom50t/image/upload/v1784275804/Lamine_PDP_bupwlh.webp"
+              alt="Player Edition"
+              style={styles.image}
+            />
+            <div style={styles.overlay}>
+              <h2 style={styles.cardTitle}>Player Edition!</h2>
+              <button style={styles.button}>Explore! →</button>
+            </div>
           </div>
         </div>
       </div>
@@ -41,9 +47,37 @@ function CategorySelect() {
 }
 
 const styles = {
-  container: {
+  wrapper: {
+    position: 'relative',
     minHeight: '100vh',
-    backgroundColor: '#0a0e1a',
+    overflow: 'hidden',
+  },
+  bgImage: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundImage: 'url(https://res.cloudinary.com/ddatom50t/image/upload/v1784276417/Web_-16-9.png_r09kdp.webp)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    filter: 'blur(8px)',
+    transform: 'scale(1.1)',
+    zIndex: 0,
+  },
+  darkOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(10, 14, 26, 0.75)',
+    zIndex: 1,
+  },
+  container: {
+    position: 'relative',
+    zIndex: 2,
+    minHeight: '100vh',
     padding: '60px 20px',
     textAlign: 'center',
   },
@@ -54,9 +88,11 @@ const styles = {
     marginBottom: '10px',
   },
   subtitle: {
-    color: '#8892b0',
-    fontSize: '1.1rem',
+    color: '#fff',
+    fontSize: '1.5rem',
+    fontWeight: '700',
     marginBottom: '50px',
+    textShadow: '0 2px 10px rgba(0,0,0,0.6)',
   },
   grid: {
     display: 'flex',
@@ -73,7 +109,7 @@ const styles = {
     borderRadius: '16px',
     overflow: 'hidden',
     cursor: 'pointer',
-    boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
+    boxShadow: '0 8px 24px rgba(0,0,0,0.5)',
   },
   image: {
     width: '100%',
