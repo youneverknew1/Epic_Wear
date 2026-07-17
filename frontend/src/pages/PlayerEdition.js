@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getProducts } from '../services/api';
+import Footer from '../components/Footer';
 
 function PlayerEdition() {
   const [products, setProducts] = useState([]);
@@ -56,7 +57,7 @@ function PlayerEdition() {
             }}
           >
             <img src={p.image_url} alt={p.name} 
-                 style={{width:'100%', height:'220px', objectFit:'cover', borderRadius:'8px 8px 0 0'}} />
+              style={{width:'100%', height:'220px', objectFit:'cover', borderRadius:'8px 8px 0 0'}} />
             <div style={{padding:'18px'}}>
               <h3 style={{fontSize:'16px', fontWeight:'700', marginBottom:'6px', color:'white'}}>{p.name}</h3>
               <p style={{color:'#888', fontSize:'13px', marginBottom:'12px'}}>Stock: {p.stock} left</p>
@@ -72,24 +73,7 @@ function PlayerEdition() {
         ))}
       </div>
 
-      <div style={{
-        textAlign: 'center',
-        marginTop: '60px',
-        paddingTop: '25px',
-        borderTop: '1px solid #2a2a3e'
-      }}>
-        <p style={{ color: '#666', fontSize: '13px' }}>
-          Developed by{' '}
-          <a 
-            href="https://github.com/youneverknew1"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: '#e94560', fontWeight: '700', textDecoration: 'none' }}
-          >
-            Shahriar Shadid
-          </a>
-        </p>
-      </div>
+      <Footer />
     </div>
   );
 }
