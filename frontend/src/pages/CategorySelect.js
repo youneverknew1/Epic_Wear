@@ -27,7 +27,7 @@ function CategorySelect() {
 
         <div style={styles.card} onClick={() => handleSelect('player')}>
           <img
-            src="https://res.cloudinary.com/ddatom50t/image/upload/v1784267755/images_nfbmel.jpg"
+            src="https://res.cloudinary.com/ddatom50t/image/upload/v1784275804/Lamine_PDP_bupwlh.webp"
             alt="Player Edition"
             style={styles.image}
           />
