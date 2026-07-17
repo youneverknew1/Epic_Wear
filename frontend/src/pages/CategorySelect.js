@@ -61,7 +61,7 @@ const styles = {
     backgroundImage: 'url(https://res.cloudinary.com/ddatom50t/image/upload/v1784276417/Web_-16-9.png_r09kdp.webp)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    filter: 'blur(8px)',
+    filter: 'blur(5px)',
     transform: 'scale(1.1)',
     zIndex: 0,
   },
