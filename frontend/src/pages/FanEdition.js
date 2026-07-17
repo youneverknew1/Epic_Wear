@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getProducts } from '../services/api';
-export const getProducts = (edition) => 
-  API.get('/products', { params: edition ? { edition } : {} });
 
-function Home() {
+function FanEdition() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    getProducts()
+    getProducts('fan')
       .then(res => { 
         setProducts(res.data); 
         setLoading(false); 
@@ -27,8 +25,8 @@ function Home() {
   return (
     <div style={{padding:'40px 60px', background:'#0f0f1a', minHeight:'100vh'}}>
       <div style={{textAlign:'center', marginBottom:'40px'}}>
-        <h1 style={{fontSize:'36px', fontWeight:'800', color:'white'}}>Premium Collection</h1>
-        <p style={{color:'#aaa', marginTop:'8px'}}>Premium jerseys for crazyfan</p>
+        <h1 style={{fontSize:'36px', fontWeight:'800', color:'white'}}>Fan Edition</h1>
+        <p style={{color:'#aaa', marginTop:'8px'}}>Premium jerseys for the crazy fan</p>
       </div>
       
       <div style={{
@@ -58,7 +56,7 @@ function Home() {
             }}
           >
             <img src={p.image_url} alt={p.name} 
-              style={{width:'100%', height:'220px', objectFit:'cover', borderRadius:'8px 8px 0 0'}} />
+                 style={{width:'100%', height:'220px', objectFit:'cover', borderRadius:'8px 8px 0 0'}} />
             <div style={{padding:'18px'}}>
               <h3 style={{fontSize:'16px', fontWeight:'700', marginBottom:'6px', color:'white'}}>{p.name}</h3>
               <p style={{color:'#888', fontSize:'13px', marginBottom:'12px'}}>Stock: {p.stock} left</p>
@@ -74,7 +72,6 @@ function Home() {
         ))}
       </div>
 
-      {/* Fixed Footer Section */}
       <div style={{
         textAlign: 'center',
         marginTop: '60px',
@@ -87,13 +84,9 @@ function Home() {
             href="https://github.com/youneverknew1"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              color: '#e94560',
-              fontWeight: '700',
-              textDecoration: 'none'
-            }}
+            style={{ color: '#e94560', fontWeight: '700', textDecoration: 'none' }}
           >
-            Shahriar Sadid
+            Shahriar Shadid
           </a>
         </p>
       </div>
@@ -101,4 +94,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default FanEdition;

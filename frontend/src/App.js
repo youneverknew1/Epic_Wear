@@ -9,6 +9,8 @@ import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import FanEdition from './pages/FanEdition';
+import PlayerEdition from './pages/PlayerEdition';
 
 const globalStyles = `
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,6 +33,8 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} /> 
+          <Route path="/fan-edition" element={<FanEdition />} />
+          <Route path="/player-edition" element={<PlayerEdition />} />
         </Routes>
       </Router>
     </AuthProvider>

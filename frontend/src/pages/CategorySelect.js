@@ -4,17 +4,16 @@ import { useNavigate } from 'react-router-dom';
 function CategorySelect() {
   const navigate = useNavigate();
 
-  const handleSelect = () => {
-    navigate('/home');
+  const handleSelect = (edition) => {
+  navigate(edition === 'fan' ? '/fan-edition' : '/player-edition');
   };
-
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>Choose Your Style</h1>
       <p style={styles.subtitle}>Pick a collection to explore</p>
 
       <div style={styles.grid}>
-        <div style={styles.card} onClick={handleSelect}>
+        <div style={styles.card} onClick={() => handleSelect('fan')}>
           <img
             src="https://res.cloudinary.com/ddatom50t/image/upload/v1784267757/rn-image_picker_lib_temp_62fe2df9-5b70-46c6-85cf-2f3943f6aaf6_rpq0i7.webp"
             alt="Fan Edition"
@@ -26,7 +25,7 @@ function CategorySelect() {
           </div>
         </div>
 
-        <div style={styles.card} onClick={handleSelect}>
+        <div style={styles.card} onClick={() => handleSelect('player')}>
           <img
             src="https://res.cloudinary.com/ddatom50t/image/upload/v1784267755/images_nfbmel.jpg"
             alt="Player Edition"
