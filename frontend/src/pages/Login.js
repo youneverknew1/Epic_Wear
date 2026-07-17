@@ -51,10 +51,17 @@ function Login() {
                 {error && <p style={{ color: '#e94560', marginBottom: '15px', textAlign: 'center', fontSize: '14px' }}>{error}</p>}
 
                 <button onClick={handleLogin} disabled={loading} style={{
-                    width: '100%', padding: '14px', backgroundColor: '#e94560',
-                    color: 'white', border: 'none', borderRadius: '12px',
-                    fontSize: '16px', fontWeight: '700', cursor: 'pointer'
-                }}>{loading ? 'Logging in...' : 'Login'}</button>
+                    width: '100%',
+                    padding: '14px', 
+                    backgroundColor: '#e94560',
+                    color: 'white', 
+                    border: 'none', 
+                    borderRadius: '12px',
+                    fontSize: '16px', 
+                    fontWeight: '700', 
+                    cursor: 'pointer'
+                }
+                }>{loading ? 'Logging in...' : 'Login'}</button>
 
                 <p style={{ color: '#aaa', textAlign: 'center', marginTop: '20px', fontSize: '14px' }}>
                     Don't have an account?{' '}
