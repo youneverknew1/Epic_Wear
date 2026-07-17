@@ -43,7 +43,7 @@ function Navbar() {
             }}>🛒 Cart</button>
             <button onClick={handleLogout} style={{
               padding:'8px 20px', backgroundColor:'transparent',
-              color:'#aaa', border:'1px solid #2a2a3e',
+              color:'#090909', border:'1px solid #2a2a3e',
               borderRadius:'25px', cursor:'pointer', fontSize:'14px'
             }}>Logout</button>
           </>
