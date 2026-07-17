@@ -9,36 +9,31 @@ function CategorySelect() {
   };
 
   return (
-    <div style={styles.wrapper}>
-      <div style={styles.bgImage}></div>
-      <div style={styles.darkOverlay}></div>
+    <div style={styles.container}>
+      <h1 style={styles.subtitle}>Pick a collection to explore</h1>
 
-      <div style={styles.container}>
-        <h1 style={styles.subtitle}>Pick a collection to explore</h1>
-
-        <div style={styles.grid}>
-          <div style={styles.card} onClick={() => handleSelect('fan')}>
-            <img
-              src="https://res.cloudinary.com/ddatom50t/image/upload/v1784267757/rn-image_picker_lib_temp_62fe2df9-5b70-46c6-85cf-2f3943f6aaf6_rpq0i7.webp"
-              alt="Fan Edition"
-              style={styles.image}
-            />
-            <div style={styles.overlay}>
-              <h2 style={styles.cardTitle}>Fan Edition</h2>
-              <button style={styles.button}>Explore →</button>
-            </div>
+      <div style={styles.grid}>
+        <div style={styles.card} onClick={() => handleSelect('fan')}>
+          <img
+            src="https://res.cloudinary.com/ddatom50t/image/upload/v1784267757/rn-image_picker_lib_temp_62fe2df9-5b70-46c6-85cf-2f3943f6aaf6_rpq0i7.webp"
+            alt="Fan Edition"
+            style={styles.image}
+          />
+          <div style={styles.overlay}>
+            <h2 style={styles.cardTitle}>Fan Edition</h2>
+            <button style={styles.button}>Explore →</button>
           </div>
+        </div>
 
-          <div style={styles.card} onClick={() => handleSelect('player')}>
-            <img
-              src="https://res.cloudinary.com/ddatom50t/image/upload/v1784275804/Lamine_PDP_bupwlh.webp"
-              alt="Player Edition"
-              style={styles.image}
-            />
-            <div style={styles.overlay}>
-              <h2 style={styles.cardTitle}>Player Edition!</h2>
-              <button style={styles.button}>Explore! →</button>
-            </div>
+        <div style={styles.card} onClick={() => handleSelect('player')}>
+          <img
+            src="https://res.cloudinary.com/ddatom50t/image/upload/v1784275804/Lamine_PDP_bupwlh.webp"
+            alt="Player Edition"
+            style={styles.image}
+          />
+          <div style={styles.overlay}>
+            <h2 style={styles.cardTitle}>Player Edition!</h2>
+            <button style={styles.button}>Explore! →</button>
           </div>
         </div>
       </div>
@@ -47,45 +42,9 @@ function CategorySelect() {
 }
 
 const styles = {
-  wrapper: {
-    position: 'relative',
-    minHeight: '100vh',
-    overflow: 'hidden',
-  },
-  bgImage: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundImage: 'url(https://res.cloudinary.com/ddatom50t/image/upload/v1784276417/Web_-16-9.png_r09kdp.webp)',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    filter: 'blur(5px)',
-    transform: 'scale(1.1)',
-    zIndex: 0,
-  },
-  darkOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(10, 14, 26, 0.75)',
-    zIndex: 1,
-  },
   container: {
-    position: 'relative',
-    zIndex: 2,
-    minHeight: '100vh',
     padding: '60px 20px',
     textAlign: 'center',
-  },
-  title: {
-    color: '#fff',
-    fontSize: '2.5rem',
-    fontWeight: 'bold',
-    marginBottom: '10px',
   },
   subtitle: {
     color: '#fff',

@@ -24,10 +24,10 @@ function PlayerEdition() {
   );
 
   return (
-    <div style={{padding:'40px 60px', background:'#0f0f1a', minHeight:'100vh'}}>
+    <div style={{padding:'40px 60px', minHeight:'100vh'}}>
       <div style={{textAlign:'center', marginBottom:'40px'}}>
         <h1 style={{fontSize:'36px', fontWeight:'800', color:'white'}}>Player Edition</h1>
-        <p style={{color:'#aaa', marginTop:'8px'}}>Wear what the pros wear</p>
+        <p style={{color:'#ddd', marginTop:'8px'}}>Wear what the pros wear</p>
       </div>
       
       <div style={{
