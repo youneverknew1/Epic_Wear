@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getProducts } from '../services/api';
+import Footer from '../components/Footer';
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -72,28 +73,7 @@ function Home() {
         ))}
       </div>
 
-      <div style={{
-        textAlign: 'center',
-        marginTop: '60px',
-        paddingTop: '25px',
-        borderTop: '1px solid #2a2a3e'
-      }}>
-        <p style={{ color: '#666', fontSize: '13px' }}>
-          Developed by{' '}
-          <a 
-            href="https://github.com/youneverknew1"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: '#e94560',
-              fontWeight: '700',
-              textDecoration: 'none'
-            }}
-          >
-            Shahriar Sadid
-          </a>
-        </p>
-      </div>
+      <Footer />
     </div>
   );
 }
