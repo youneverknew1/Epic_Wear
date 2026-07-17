@@ -88,6 +88,27 @@ def get_cart(user_id):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@api_bp.route('/cart/<int:cart_id>', methods=['DELETE'])
+def remove_from_cart(cart_id):
+    try:
+        mysql = current_app.extensions['mysql']
+        cursor = mysql.connection.cursor()
+
+        # Check the item exists before attempting delete
+        cursor.execute("SELECT id FROM cart WHERE id = %s", (cart_id,))
+        existing = cursor.fetchone()
+        if not existing:
+            cursor.close()
+            return jsonify({'error': 'Cart item not found'}), 404
+
+        cursor.execute("DELETE FROM cart WHERE id = %s", (cart_id,))
+        mysql.connection.commit()
+        cursor.close()
+
+        return jsonify({'message': 'Item removed from cart'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 # ===== ORDERS =====
 @api_bp.route('/orders', methods=['POST'])
 def create_order():
